@@ -1,3 +1,5 @@
+mod thread_pool;
+
 use std::{
     fs, 
     io::{BufRead, BufReader, Write}, 
@@ -5,7 +7,6 @@ use std::{
     thread,
     time::Duration,
 };
-mod thread_pool;
 use thread_pool::ThreadPool;
 
 fn main() {
