@@ -77,5 +77,3 @@ impl Worker {
 }
 
 type Job = Box<dyn FnOnce() + Send + 'static>;
-
-
