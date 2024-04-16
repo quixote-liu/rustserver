@@ -28,12 +28,12 @@ fn handle_connection(mut stream: TcpStream) {
     let request_line = buf_reader.lines().next().unwrap().unwrap();
 
     let (status_line, filename) = match &request_line[..] {
-        "GET /hellorust HTTP/1.1" => ("HTTP/1.1 200 OK", "./statis/hello.html"),
+        "GET /hellorust HTTP/1.1" => ("HTTP/1.1 200 OK", "/home/lcs/worksplace/rustdemos/rustserver/statis/hello.html"),
         "GET /sleep HTTP/1.1" => {
             thread::sleep(Duration::from_secs(5));
-            ("HTTP/1.1 200 OK", "./statis/hello.html")
+            ("HTTP/1.1 200 OK", "/home/lcs/worksplace/rustdemos/rustserver/statis/hello.html")
         },
-        _ => ("HTTP/1.1 404 NOT FOUND", "404.html"),
+        _ => ("HTTP/1.1 404 NOT FOUND", "/home/lcs/worksplace/rustdemos/rustserver/statis/404.html"),
     };
 
     let contents = fs::read_to_string(filename).unwrap();
